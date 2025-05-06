@@ -42,7 +42,7 @@ export default function AIAdvisorPreview() {
     setIsTyping(false);
   };
 
-  // 清空对话但保留欢迎消息
+  // 清空对话保留欢迎消息
   const clearChat = () => {
     if (chatMessages.length > 0) {
       // 保留首条AI欢迎消息
@@ -56,7 +56,7 @@ export default function AIAdvisorPreview() {
         // 如果找不到欢迎消息，创建一个新的
         const newWelcomeMessage = {
           sender: "ai",
-          text: "你好！我是小棕，你的专属留学申请顾问。我可以帮你规划申请路线、分析院校匹配度、优化文书材料，还能分享成功案例哦！",
+          text: "你好！我是小棕，你的专属留学申请顾问。我可以帮你规划申请路线、分析院校匹配度、进行专业选择，还能分享成功案例哦！",
           time: new Date().toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
@@ -71,7 +71,7 @@ export default function AIAdvisorPreview() {
     }
   };
 
-  // 更丰富的建议问题，按类别组织
+  // 建议问题
   const suggestionsByCategory = {
     all: ["我该如何开始准备留学申请？", "哪些学校适合我的背景和目标？"],
     profile: ["我的背景能申请哪些学校？", "GPA不高，有什么补救方案？"],
@@ -119,7 +119,7 @@ export default function AIAdvisorPreview() {
         // 添加AI的首条欢迎消息
         const welcomeMessage = {
           sender: "ai",
-          text: "你好！我是小棕，你的专属留学申请顾问。我可以帮你规划申请路线、分析院校匹配度、优化文书材料，还能分享成功案例哦！",
+          text: "你好！我是小棕，你的专属留学申请顾问。我可以帮你规划申请路线、分析院校匹配度、进行专业选择，还能分享成功案例哦！",
           time: new Date().toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
@@ -144,7 +144,7 @@ export default function AIAdvisorPreview() {
         // 这里可以接入真实的AI回复逻辑
         let aiResponse;
 
-        // 根据不同问题类型给出不同格式的回复，增加多样性
+        // 根据不同问题类型给出不同格式的回复
         if (message.includes("背景") || message.includes("适合")) {
           aiResponse = {
             sender: "ai",
@@ -275,7 +275,7 @@ export default function AIAdvisorPreview() {
         buttonHover: "hover:bg-teal-500",
       };
 
-  // 侧边建议框组件
+  // 建议框组件
   const SuggestionsPanel = () => (
     <div
       className={`p-3 mt-2 rounded-lg ${
@@ -541,7 +541,6 @@ export default function AIAdvisorPreview() {
             {isTyping && (
               <div className="mb-4 flex justify-start">
                 <div className="h-8 w-8 rounded-full bg-teal-500 flex items-center justify-center text-white mr-2">
-                  {/* 替换成棕榈树图标 */}
                   <TreePalm size={18} />
                 </div>
                 <div
@@ -569,7 +568,7 @@ export default function AIAdvisorPreview() {
               </div>
             )}
 
-            {/* 对话开始后的建议问题 - 永久显示在对话页面的侧边 */}
+            {/* 对话开始后的建议问题  */}
             <div className="mt-6 mb-4">
               <SuggestionsPanel />
             </div>
@@ -584,7 +583,6 @@ export default function AIAdvisorPreview() {
         <div className="p-3 border-t">
           <div className="max-w-3xl w-full mx-auto">
             <form onSubmit={handleSubmit} className="relative">
-              {/* 更改为 textarea 以支持更高的输入框 */}
               <textarea
                 ref={inputRef}
                 value={message}
@@ -598,9 +596,9 @@ export default function AIAdvisorPreview() {
                 } border transition-colors`}
               />
 
-              {/* 左下角按钮 - 添加清除按钮和tooltip */}
+              {/* 左下角按钮  */}
               <div className="absolute left-2 bottom-4 flex space-x-1">
-                {/* 注释掉上传文件按钮
+                {/* 上传文件按钮
                 <button
                   type="button"
                   onClick={handleFileUpload}
@@ -625,7 +623,7 @@ export default function AIAdvisorPreview() {
                   >
                     <Trash2 size={18} />
                   </button>
-                  {/* 添加tooltip显示"清除对话" */}
+                  {/* 显示"清除对话" */}
                   <div className="absolute left-1/2 bottom-full mb-2 -translate-x-1/2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                     清除对话
                   </div>
@@ -640,7 +638,7 @@ export default function AIAdvisorPreview() {
 
               {/* 右下角按钮组 */}
               <div className="absolute right-2 bottom-4 flex space-x-2">
-                {/* 注释掉语音输入按钮
+                {/* 语音输入按钮
                 <button
                   type="button"
                   onClick={toggleVoiceRecording}
@@ -676,7 +674,7 @@ export default function AIAdvisorPreview() {
         </div>
       )}
 
-      {/* Footer - 修改版权信息 */}
+      {/* Footer  */}
       <footer
         className={`py-2 px-4 text-center text-xs ${
           darkMode ? "text-gray-500" : "text-gray-400"
