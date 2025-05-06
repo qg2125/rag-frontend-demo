@@ -16,6 +16,7 @@ import {
   Mic,
   Trash2,
   TreePalm,
+  FilePlus2,
 } from "lucide-react";
 
 export default function AIAdvisorPreview() {
@@ -611,6 +612,25 @@ export default function AIAdvisorPreview() {
                   <Paperclip size={18} />
                 </button>
                 */}
+                {/* 新建对话按钮 */}
+                <div className="relative group">
+                  <button
+                    type="button"
+                    onClick={resetChat}
+                    className={`p-2 rounded-full ${
+                      darkMode
+                        ? "text-gray-300 hover:bg-gray-700"
+                        : "text-teal-600 hover:bg-teal-50"
+                    }`}
+                  >
+                    <FilePlus2 size={18} />
+                  </button>
+                  {/* 显示"新建对话" */}
+                  <div className="absolute left-1/2 bottom-full mb-2 -translate-x-1/2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                    新建对话
+                  </div>
+                </div>
+
                 <div className="relative group">
                   <button
                     type="button"
